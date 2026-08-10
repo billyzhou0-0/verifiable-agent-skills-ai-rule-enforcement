@@ -4,6 +4,14 @@
 
 Written rules are probabilistic: an AI reads them and complies maybe 80% of the time. This methodology converts soft rules into hard guarantees with three layers, each proven in production:
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/billyzhou0-0/verifiable-agent-skills-ai-rule-enforcement.svg)](https://github.com/billyzhou0-0/verifiable-agent-skills-ai-rule-enforcement/stargazers)
+## Why this exists（为什么做这个）
+
+A governance checklist said "add the msg_type field to 451 records." The audit found **0 of 451**. Paper rules are probabilistic: an AI reads them and complies maybe 80% of the time — less after context compression.
+
+This skill is the answer to the question "how do you KNOW the AI will follow the rules?": mechanisms, not text. A zero-cost local health-check script, a git pre-commit hook that physically blocks violations, and an injection-layer design that maximizes compliance by injecting less.
+
 ## The three layers
 
 ### Layer 1: A zero-token health-check script (`scripts/rule_health_check.py`)
