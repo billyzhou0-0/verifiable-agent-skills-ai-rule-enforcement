@@ -11,8 +11,8 @@ Written rules are probabilistic: an AI reads them and complies maybe 80% of the 
 
 ## Why this exists（为什么做这个）
 
-A governance checklist said "add the msg_type field to 1,000+ records." The audit found **0 of 1,000+**. Paper rules are probabilistic: an AI reads them and complies maybe 80% of the time — less after context compression.
-一份治理清单写着"给 1,000+ 条记录加 msg_type 字段"。审计发现 **1,000+ 条里 0 条做了**。纸面规矩是概率性的：AI 读了，遵守率可能只有 80%——上下文压缩之后更低。
+A governance checklist said "add the msg_type field to 10,000+ records." The audit found **0 of 10,000+**. Paper rules are probabilistic: an AI reads them and complies maybe 80% of the time — less after context compression.
+一份治理清单写着"给 10,000+ 条记录加 msg_type 字段"。审计发现 **10,000+ 条里 0 条做了**。纸面规矩是概率性的：AI 读了，遵守率可能只有 80%——上下文压缩之后更低。
 
 This skill is the answer to the question "how do you KNOW the AI will follow the rules?": mechanisms, not text. A zero-cost local health-check script, a git pre-commit hook that physically blocks violations, and an injection-layer design that maximizes compliance by injecting less.
 本技能回答的是"你怎么知道 AI 每次都会守规矩？"——答案是机制，不是文字：零成本本地体检脚本、物理阻止违规提交的 git 钩子、以及"注入越少、遵守率越高"的提示词层设计。
@@ -55,7 +55,7 @@ Plus the output-discipline rule: **every claim of "done/updated/synced" must car
 
 ## Why these skills exist（实战教训——产生本方法的真实事件）
 
-- A governance checklist existed on paper, but a 1,000+-record audit found **0/1,000+ claimed landings actually present** — the method described it, nothing executed it. Paper rules are not enforcement. / 治理清单纸面上存在，但 1,000+ 条声称的落地实际 0 条存在——方法描述了，什么都没执行。纸面规矩不是强制。
+- A governance checklist existed on paper, but a 10,000+-record audit found **0/10,000+ claimed landings actually present** — the method described it, nothing executed it. Paper rules are not enforcement. / 治理清单纸面上存在，但 10,000+ 条声称的落地实际 0 条存在——方法描述了，什么都没执行。纸面规矩不是强制。
 - The user asked: "how do you KNOW the AI will run the rules every time?" — the answer is mechanism, not text: hooks and scripts run deterministically, models don't. / 用户问："你怎么知道 AI 每次都会执行规矩？"——答案是机制不是文字：钩子和脚本确定性执行，模型不是。
 - A "sync obligation" was treated as optional once; the rule is now: **linking updates is a duty, not a choice** — and the script checks it. / "同步义务"曾被当成可选项；现在的规矩是：**联动更新是义务不是选项**——脚本直接检查它。
 
