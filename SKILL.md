@@ -69,3 +69,20 @@ cat scripts/pre-commit > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
 - `scripts/rule_health_check.py` — 零成本体检器（纯标准库，路径可配置，凭证检查为可选模块）
 - `scripts/pre-commit` — 红绿灯钩子
+
+## 使用示例（Example usage）
+
+**场景**：共享知识库每次提交前自动体检。
+**执行**：
+1. 安装钩子：`cat scripts/pre-commit > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit`
+2. 手动体检：`python3 scripts/rule_health_check.py --vault <知识库路径>`
+3. 提交时自动跑：命名日期位置/引用同步/敏感信息/frontmatter/凭证转录
+4. 违规 → 提交被拒（附证据），修复后重提
+
+**输出示例**：
+```
+✅ 命名格式：日期在末尾（0 违规）
+✅ 引用同步：0 处旧路径残留
+❌ 敏感信息：2 处疑似（只报告不处理，请用户判断）
+✅ 凭证检查：今天 12 条用户消息签名，凭证已找到 11 条（≥80%）
+```
