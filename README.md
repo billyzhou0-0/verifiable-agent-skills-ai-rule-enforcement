@@ -24,7 +24,7 @@ This skill is the answer to the question "how do you KNOW the AI will follow the
 `scripts/rule_health_check.py` — stdlib only (**zero cost — it doesn't consume AI credits**), runs in milliseconds, checks five things:
 纯标准库本地脚本（**零成本，不消耗 AI 额度**，毫秒级），检查五类违规：
 
-1. **Naming compliance / 命名合规** — filename date at the END (`name-task-2026-08-11.md`, not `2026-08-11-name.md`). 日期在文件名末尾。
+1. **Naming compliance / 命名合规** — filename date at the END (`name-task-2026-01-01.md`, not `2026-01-01-name.md`). 日期在文件名末尾。
 2. **Sync compliance / 引用同步** — stale old names/paths still referenced anywhere in the vault. 全库扫描旧文件名/旧路径残留。
 3. **Sensitive info / 敏感信息** — API keys / tokens (OpenAI `sk-`, Google `AIza`, GitHub `ghp_`, AWS `AKIA`, Slack, Bearer) — **reports only, never auto-deletes** (human decides). API key/token 模式——**只报告不处理**（判断权在用户）。
 4. **Frontmatter integrity / frontmatter 完整性** — every production file has YAML frontmatter. 正式层文件应有 YAML frontmatter。
