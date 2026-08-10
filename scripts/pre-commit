@@ -1,0 +1,17 @@
+#!/bin/sh
+# AI 规矩体检 — pre-commit 红绿灯钩子
+# 安装: cat scripts/pre-commit > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+# 紧急绕过（仅限真紧急）: git commit --no-verify
+# 钩子不在 git 版本内——重建内容必须登记在项目登记册（克隆新库后需重建本钩子）
+
+REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+SCRIPT="$REPO_ROOT/scripts/rule_health_check.py"
+
+if [ ! -f "$SCRIPT" ]; then
+    echo "⚠️ 体检脚本不存在（$SCRIPT），跳过红绿灯（建议先安装脚本）"
+    exit 0
+fi
+
+python3 "$SCRIPT" --vault "$REPO_ROOT"
+# 体检脚本 exit 1 = 有违规 → 阻止提交；0 = 通过；其他 = 跳过
+exit $?
